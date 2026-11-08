@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>米 ME SHAKE & ME OAT — Order</title>
+<meta name="description" content="Order ME SHAKE & ME OAT, 500ml. Chocolate, Dragonfruit, Matcha.">
+<link rel="icon" href="images/logo-shake.png">
+<style>
+:root{--ink:#111;--mut:#777;--line:#e6e6e6;--bg:#fafaf8}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,"Helvetica Neue",Segoe UI,Roboto,sans-serif;color:var(--ink);background:var(--bg);line-height:1.5}
+.wrap{max-width:1040px;margin:0 auto;padding:0 20px}
+header{position:sticky;top:0;z-index:9;background:rgba(250,250,248,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
+.brand{font-family:Georgia,serif;font-size:28px;font-weight:700;text-decoration:none;color:var(--ink)}
+.brand small{font-size:11px;letter-spacing:.2em;vertical-align:middle;margin-left:6px;font-family:inherit}
+.cartbtn{border:1px solid var(--ink);background:#fff;border-radius:99px;padding:8px 16px;font-size:14px;cursor:pointer}
+.cartbtn b{background:var(--ink);color:#fff;border-radius:99px;padding:1px 8px;margin-left:6px;font-size:12px}
+.hero{padding:40px 0 24px;text-align:center}
+.logos{display:flex;justify-content:center;gap:8px}
+.logos img{width:46%;max-width:240px;mix-blend-mode:multiply}
+.hero h1{font-family:Georgia,serif;font-weight:400;font-size:clamp(26px,6vw,40px);margin-top:10px}
+.hero p{color:var(--mut);margin-top:6px}
+.gallery{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:24px 0}
+.gallery img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:14px}
+h2{font-family:Georgia,serif;font-weight:400;font-size:26px;margin:36px 0 14px}
+.card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:20px;margin-bottom:16px}
+.label{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--mut);margin:16px 0 8px}
+.label:first-child{margin-top:0}
+.opts{display:grid;gap:8px;grid-template-columns:repeat(auto-fit,minmax(100px,1fr))}
+.opt{border:1px solid var(--line);border-radius:12px;padding:12px;background:#fff;cursor:pointer;text-align:left;font:inherit;color:inherit}
+.opt.on{border-color:var(--ink);box-shadow:inset 0 0 0 1px var(--ink)}
+.opt .t{font-weight:600}.opt .s{font-size:13px;color:var(--mut)}
+.opt .save{font-size:12px;color:#2f7d4f;font-weight:600}
+.plans{grid-template-columns:1fr 1fr}
+.row{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.qty{display:flex;align-items:center;border:1px solid var(--line);border-radius:99px}
+.qty button{width:40px;height:40px;border:0;background:none;font-size:20px;cursor:pointer}
+.qty span{min-width:28px;text-align:center;font-weight:600}
+textarea,input{width:100%;border:1px solid var(--line);border-radius:12px;padding:12px;font:inherit;background:#fff}
+textarea{min-height:70px;resize:vertical}
+.btn{display:block;width:100%;border:0;border-radius:99px;padding:15px;font:inherit;font-weight:600;cursor:pointer;background:var(--ink);color:#fff;text-align:center}
+.btn.wa{background:#25D366;color:#fff}
+.btn.ghost{background:#fff;color:var(--ink);border:1px solid var(--ink)}
+.btn:disabled{opacity:.4;cursor:not-allowed}
+.line{display:flex;justify-content:space-between;gap:10px;padding:12px 0;border-bottom:1px solid var(--line)}
+.line:last-child{border:0}
+.line .n{font-size:13px;color:var(--mut)}
+.rm{border:0;background:none;color:#b33;font-size:13px;cursor:pointer;margin-top:4px}
+.total{display:flex;justify-content:space-between;font-size:20px;font-weight:700;margin-top:10px}
+.empty{color:var(--mut);text-align:center;padding:18px 0}
+.grid2{display:grid;gap:12px}
+.hint{font-size:13px;color:var(--mut)}
+.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%) translateY(120px);background:var(--ink);color:#fff;padding:10px 18px;border-radius:99px;transition:.3s;font-size:14px;z-index:20}
+.toast.show{transform:translateX(-50%) translateY(0)}
+footer{border-top:1px solid var(--line);margin-top:40px;padding:28px 0 40px;text-align:center;color:var(--mut);font-size:14px}
+footer a{color:var(--ink)}
+#payOnline{display:none;margin-top:10px}
+@media(min-width:860px){.gallery{grid-template-columns:repeat(4,1fr)}.cols{display:grid;grid-template-columns:1.2fr 1fr;gap:24px;align-items:start}.sticky{position:sticky;top:76px}}
+</style></head>
+<body>
+<header><div class="wrap"><a class="brand" href="#">米<small>ME</small></a><button class="cartbtn" onclick="document.getElementById('cart').scrollIntoView({behavior:'smooth'})">Cart<b id="cartCount">0</b></button></div></header>
+<main class="wrap">
+<section class="hero">
+<div class="logos"><img src="images/logo-shake.png" alt="ME SHAKE . SHAKE ME"><img src="images/logo-oat.png" alt="ME OAT . EAT ME"></div>
+<h1>Shake me. Eat me.</h1>
+<p>Fresh oat shakes & overnight oats, 500ml. Pick your flavour, order on WhatsApp.</p>
+</section>
+<div class="gallery">
+<img src="images/photo1.jpg" alt="ME SHAKE bottles" loading="lazy"><img src="images/photo2.jpg" alt="ME OAT jars with toppings" loading="lazy">
+<img src="images/photo3.jpg" alt="ME SHAKE bottles" loading="lazy"><img src="images/photo4.jpg" alt="ME OAT jars" loading="lazy">
+</div>
+<div class="cols">
+<section>
+<h2>Build your order</h2>
+<div class="card">
+<div class="label">1 · Product</div><div class="opts" id="optProduct"></div>
+<div class="label">2 · Flavour</div><div class="opts" id="optFlavour"></div>
+<div class="label">3 · Plan</div><div class="opts plans" id="optPlan"></div>
+<div id="mixWrap" style="display:none;margin-top:8px"><div class="label">Flavour mix (optional)</div><textarea id="mixNote" placeholder="e.g. 2 Chocolate, 2 Matcha, 1 Dragonfruit"></textarea></div>
+<div class="label">4 · Quantity</div>
+<div class="row"><div class="qty"><button onclick="setQty(-1)" aria-label="less">−</button><span id="qty">1</span><button onclick="setQty(1)" aria-label="more">+</button></div><div id="lineTotal" style="font-weight:700;font-size:18px"></div></div>
+<button class="btn" style="margin-top:18px" onclick="addToCart()">Add to cart</button>
+</div>
+</section>
+<section class="sticky" id="cart">
+<h2>Your cart</h2>
+<div class="card"><div id="cartItems"></div><div class="total"><span>Total</span><span id="cartTotal">RM0.00</span></div><p class="hint">Delivery details & charges (if any) confirmed on WhatsApp.</p></div>
+<div class="card grid2">
+<div class="label">Your details</div>
+<input id="cName" placeholder="Name" autocomplete="name">
+<input id="cPhone" placeholder="Phone (e.g. 012-3456789)" type="tel" autocomplete="tel">
+<textarea id="cAddr" placeholder="Delivery address" autocomplete="street-address"></textarea>
+<div><div class="hint" style="margin-bottom:4px">Preferred delivery date</div><input id="cDate" type="date"></div>
+<textarea id="cNotes" placeholder="Notes (optional)"></textarea>
+<button class="btn wa" id="waBtn" onclick="orderWA()">Order via WhatsApp</button>
+<!-- ===== FUTURE ONLINE PAYMENT (FPX / e-wallet via ToyyibPay or Billplz) =====
+     Set PAYMENT_URL in the config script below to show the "Pay Online" button. -->
+<button class="btn ghost" id="payOnline" onclick="payOnline()">Pay Online (FPX / e-Wallet)</button>
+</div>
+</section>
+</div>
+</main>
+<footer>米 ME SHAKE · ME OAT<br>WhatsApp <a href="https://wa.me/601121202399">011-21202399</a></footer>
+<div class="toast" id="toast"></div>
+<script>
+/* ================= CONFIG ================= */
+const WHATSAPP = '601121202399';
+// Future online payment: paste your ToyyibPay / Billplz payment link here (FPX, e-wallet).
+// Leave empty to hide the "Pay Online" button.
+const PAYMENT_URL = '';
+/* ========================================== */
+const PRODUCTS=[{id:'shake',name:'ME SHAKE',desc:'Oat shake with apple chunks'},{id:'oat',name:'ME OAT',desc:'Overnight oats, served with crunchy toppings'}];
+const FLAVOURS=['Chocolate','Dragonfruit','Matcha'];
+const PLANS=[{id:'single',name:'Single',cups:1,price:23.90},{id:'5day',name:'5-Day',cups:5,price:104.90},{id:'10day',name:'10-Day',cups:10,price:199.90},{id:'club',name:'20-Cup Club',cups:20,price:399}];
+const RM=n=>'RM'+n.toFixed(2);
+let sel={product:'shake',flavour:'Chocolate',plan:'single',qty:1};
+let cart=JSON.parse(localStorage.getItem('meCart')||'[]');
+const base=PLANS[0].price;
+function opts(el,items,key,render){const c=document.getElementById(el);c.innerHTML='';items.forEach(it=>{const v=it.id||it;const b=document.createElement('button');b.className='opt'+(sel[key]===v?' on':'');b.innerHTML=render(it);b.onclick=()=>{sel[key]=v;draw()};c.appendChild(b)})}
+function draw(){
+ opts('optProduct',PRODUCTS,'product',p=>`<div class="t">${p.name}</div><div class="s">${p.desc}</div>`);
+ opts('optFlavour',FLAVOURS,'flavour',f=>`<div class="t">${f}</div>`);
+ opts('optPlan',PLANS,'plan',p=>{const per=p.price/p.cups,sv=base-per;return `<div class="t">${p.name}</div><div class="s">${RM(p.price)}${p.cups>1?' · '+p.cups+' cups':''}</div>`+(p.cups>1?`<div class="s">${RM(per)}/cup</div><div class="save">Save ${RM(sv)}/cup (${Math.round(sv/base*100)}%)</div>`:'<div class="s">500ml</div>')});
+ const pl=PLANS.find(p=>p.id===sel.plan);document.getElementById('mixWrap').style.display=pl.cups>1?'block':'none';
+ document.getElementById('qty').textContent=sel.qty;document.getElementById('lineTotal').textContent=RM(pl.price*sel.qty);
+ drawCart();
+}
+function setQty(d){sel.qty=Math.max(1,Math.min(50,sel.qty+d));draw()}
+function toast(t){const e=document.getElementById('toast');e.textContent=t;e.classList.add('show');setTimeout(()=>e.classList.remove('show'),1800)}
+function addToCart(){const p=PRODUCTS.find(x=>x.id===sel.product),pl=PLANS.find(x=>x.id===sel.plan);const mix=pl.cups>1?document.getElementById('mixNote').value.trim():'';
+ cart.push({product:p.name,flavour:sel.flavour,plan:pl.name,cups:pl.cups,price:pl.price,qty:sel.qty,mix});document.getElementById('mixNote').value='';sel.qty=1;save();draw();toast('Added to cart ✓')}
+function removeItem(i){cart.splice(i,1);save();draw()}
+function save(){localStorage.setItem('meCart',JSON.stringify(cart))}
+const total=()=>cart.reduce((s,i)=>s+i.price*i.qty,0);
+function drawCart(){const c=document.getElementById('cartItems');document.getElementById('cartCount').textContent=cart.reduce((s,i)=>s+i.qty,0);
+ c.innerHTML=cart.length?cart.map((i,k)=>`<div class="line"><div><div><b>${i.product}</b> · ${i.flavour}</div><div class="n">${i.plan} · ${RM(i.price)} × ${i.qty}</div>${i.mix?`<div class="n">Mix: ${i.mix.replace(/</g,'&lt;')}</div>`:''}<button class="rm" onclick="removeItem(${k})">Remove</button></div><b>${RM(i.price*i.qty)}</b></div>`).join(''):'<div class="empty">Cart is empty. Add something yummy 😋</div>';
+ document.getElementById('cartTotal').textContent=RM(total());document.getElementById('waBtn').disabled=!cart.length;}
+function details(){const g=id=>document.getElementById(id).value.trim();return{name:g('cName'),phone:g('cPhone'),addr:g('cAddr'),date:g('cDate'),notes:g('cNotes')}}
+function orderWA(){const d=details();if(!cart.length)return toast('Cart is empty');if(!d.name||!d.phone||!d.addr){toast('Please fill name, phone & address');return}
+ let m='Hi! I want to order 米 ME SHAKE / ME OAT:\n\n';cart.forEach((i,k)=>{m+=`${k+1}. ${i.product} – ${i.flavour}\n   Plan: ${i.plan} (${RM(i.price)}) x ${i.qty} = ${RM(i.price*i.qty)}\n`;if(i.mix)m+=`   Flavour mix: ${i.mix}\n`});
+ m+=`\nSubtotal: ${RM(total())}\nTotal: ${RM(total())}\n\nName: ${d.name}\nPhone: ${d.phone}\nAddress: ${d.addr}\nPreferred delivery date: ${d.date||'-'}\nNotes: ${d.notes||'-'}`;
+ window.open('https://wa.me/'+WHATSAPP+'?text='+encodeURIComponent(m),'_blank')}
+function payOnline(){if(PAYMENT_URL)window.open(PAYMENT_URL,'_blank')}
+if(PAYMENT_URL)document.getElementById('payOnline').style.display='block';
+const t=new Date();t.setDate(t.getDate()+1);document.getElementById('cDate').min=t.toISOString().slice(0,10);
+draw();
+</script>
+</body></html>
